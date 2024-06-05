@@ -13,6 +13,9 @@ set laststatus=2
 set encoding=utf-8
 set guifont=DroidSansMono_Nerd_Font:h11
 set updatetime=250
+set fileformats=unix,dos,mac
+set fileencodings=utf-8,sjis
+set tags=.tags;$HOME
 
 " キーマッピング
 inoremap <silent> jj <ESC>
@@ -116,3 +119,27 @@ highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1 
 let g:gitgutter_highlight_lines = 1
+
+" ctagsのタグファイルをファイル保存時に自動で作る
+function! s:execute_ctags() abort
+  " 探すタグファイル名
+  let tag_name = '.tags'
+  " ディレクトリを遡り、タグファイルを探し、パス取得
+  let tags_path = findfile(tag_name, '.;')
+  " タグファイルパスが見つからなかった場合
+  if tags_path ==# ''
+    return
+  endif
+
+  " タグファイルのディレクトリパスを取得
+  " `:p:h`の部分は、:h filename-modifiersで確認
+  let tags_dirpath = fnamemodify(tags_path, ':p:h')
+  " 見つかったタグファイルのディレクトリに移動して、ctagsをバックグラウンド実行（エラー出力破棄）
+  execute 'silent !cd' tags_dirpath '&& ctags -R -f' tag_name '2> /dev/null &'
+endfunction
+
+augroup ctags
+  autocmd!
+  autocmd BufWritePost * call s:execute_ctags()
+augroup END
+
