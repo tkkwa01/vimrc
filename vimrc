@@ -114,6 +114,5 @@ let g:gitgutter_max_signs = 500  " default value (Vim < 8.1.0614, Neovim < 0.4.0
 let g:gitgutter_max_signs = -1   " default value (otherwise)
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-" 削除した行を赤くする(今はオフッとく)
-" highlight GitGutterDelete guifg=#ff2222 ctermfg=1 
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1 
 let g:gitgutter_highlight_lines = 1
