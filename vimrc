@@ -29,6 +29,9 @@ map <C-h> gT
 nmap <C-a> <Plug>(GitGutterPrevHunk)
 nmap <C-e> <Plug>(GitGutterNextHunk)
 
+autocmd FileType go nmap <silent> ;d :DlvToggleBreakpoint<CR>
+nnoremap ;b :GoDebugBreakpoint<CR>
+
 " プラグイン設定
 call plug#begin()
 Plug 'Shougo/neosnippet.vim'
@@ -48,6 +51,7 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryanoasis/vim-devicons'
+Plug 'sebdah/vim-delve', { 'for': ['go'] }
 call plug#end()
 
 " LSP設定
@@ -92,6 +96,13 @@ colorscheme solarized
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'wombat'
+
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#tabs_label = ''
+let g:airline#extensions#tabline#show_buffers = 1
+let g:airline#extensions#tabline#show_tabs = 1
+
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 
