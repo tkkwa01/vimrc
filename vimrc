@@ -29,37 +29,26 @@ map <C-h> gT
 nmap <C-a> <Plug>(GitGutterPrevHunk)
 nmap <C-e> <Plug>(GitGutterNextHunk)
 
-" プラグイン設定 (NeoBundle)
-if &compatible
-  set nocompatible
-endif
-
-set runtimepath+=/Users/aoi/.vim/bundle/neobundle.vim/
-
-call neobundle#begin(expand('/Users/aoi/.vim/bundle'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neosnippet.vim'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-NeoBundle 'preservim/nerdtree'
-NeoBundle 'vim-airline/vim-airline'
-NeoBundle 'vim-airline/vim-airline-themes'
-NeoBundle 'lervag/vimtex'
-NeoBundle 'prabirshrestha/vim-lsp'
-NeoBundle 'mattn/vim-lsp-settings'
-NeoBundle 'prabirshrestha/asyncomplete.vim'
-NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-NeoBundle 'ryanoasis/vim-devicons'
-
-call neobundle#end()
-filetype plugin indent on
-NeoBundleCheck
+" プラグイン設定
+call plug#begin()
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'tpope/vim-fugitive'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
+Plug 'preservim/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'lervag/vimtex'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ryanoasis/vim-devicons'
+call plug#end()
 
 " LSP設定
 if executable('pylsp')
