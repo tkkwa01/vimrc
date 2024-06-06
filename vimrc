@@ -11,7 +11,7 @@ set redrawtime=0
 set regexpengine=0
 set laststatus=2
 set encoding=utf-8
-set guifont=DroidSansMono_Nerd_Font:h11
+set guifont=DroidSansMono_Nerd_Font:18
 set updatetime=250
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
@@ -26,21 +26,8 @@ inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 map <C-n> :NERDTreeToggle<CR>
 map <C-l> gt
 map <C-h> gT
-
 nmap <C-a> <Plug>(GitGutterPrevHunk)
 nmap <C-e> <Plug>(GitGutterNextHunk)
-
-" プラグイン設定 (vim-plug)
-call plug#begin()
-Plug 'lervag/vimtex'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'altercation/vim-colors-solarized'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'ryanoasis/vim-devicons'
-call plug#end()
 
 " プラグイン設定 (NeoBundle)
 if &compatible
@@ -59,9 +46,16 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'preservim/nerdtree'
-
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
+NeoBundle 'lervag/vimtex'
+NeoBundle 'prabirshrestha/vim-lsp'
+NeoBundle 'mattn/vim-lsp-settings'
+NeoBundle 'prabirshrestha/asyncomplete.vim'
+NeoBundle 'prabirshrestha/asyncomplete-lsp.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+NeoBundle 'ryanoasis/vim-devicons'
 
 call neobundle#end()
 filetype plugin indent on
@@ -142,4 +136,7 @@ augroup ctags
   autocmd!
   autocmd BufWritePost * call s:execute_ctags()
 augroup END
+
+" vim-goの設定
+let g:go_fmt_command = "goimports"
 
