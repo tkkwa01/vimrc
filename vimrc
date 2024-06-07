@@ -177,7 +177,7 @@ let s:darkRed = "AE400F"
 let s:darkGreen = "8FAA51"
 let s:darkPurple =  "834F76"
 let s:black = "000000"
-let s:blackBlue = "0000FF"
+let s:blackBlue = "4682B4"
 let s:gray = "808080"
 
 " デフォルト色設定をオフにするためのVAR
@@ -195,7 +195,7 @@ let g:NERDTreeExtensionHighlightColor['tsx'] = s:lightPurple
 let g:NERDTreeExtensionHighlightColor['json'] = s:brown
 let g:NERDTreeExtensionHighlightColor['md'] = s:blackBlue
 let g:NERDTreeExtensionHighlightColor['rb'] = s:salmon
-let g:NERDTreeExtensionHighlightColor['py'] = s:green
+let g:NERDTreeExtensionHighlightColor['py'] = s:salmon
 let g:NERDTreeExtensionHighlightColor['go'] = s:aqua
 let g:NERDTreeExtensionHighlightColor['java'] = s:red
 let g:NERDTreeExtensionHighlightColor['php'] = s:violet
@@ -207,15 +207,16 @@ let g:NERDTreeExtensionHighlightColor['h'] = s:darkRed
 let g:NERDTreeExtensionHighlightColor['hpp'] = s:darkPurple
 let g:NERDTreeExtensionHighlightColor['yaml'] = s:gray
 let g:NERDTreeExtensionHighlightColor['yml'] = s:gray
+let g:NERDTreeExtensionHighlightColor['txt'] = s:white
 
 " 正確な一致のファイルの色設定
 let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange
-let g:NERDTreeExactMatchHighlightColor['README.md'] = s:blue
+let g:NERDTreeExactMatchHighlightColor['README.md'] = s:blackBlue
 let g:NERDTreeExactMatchHighlightColor['LICENSE'] = s:white
-let g:NERDTreeExactMatchHighlightColor['docker-compose.yaml'] = s:white
-let g:NERDTreeExactMatchHighlightColor['docker-compose.yml'] = s:white
-let g:NERDTreeExactMatchHighlightColor['Dockerfile'] = s:white
-let g:NERDTreeExactMatchHighlightColor['Dockerfile.dev'] = s:white
+let g:NERDTreeExactMatchHighlightColor['docker-compose.yaml'] = s:blackBlue
+let g:NERDTreeExactMatchHighlightColor['docker-compose.yml'] = s:blackBlue
+let g:NERDTreeExactMatchHighlightColor['Dockerfile'] = s:blackBlue
+let g:NERDTreeExactMatchHighlightColor['Dockerfile.dev'] = s:blackBlue
 
 
 " パターンマッチによる色設定
