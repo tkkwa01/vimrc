@@ -32,6 +32,14 @@ nmap <C-e> <Plug>(GitGutterNextHunk)
 autocmd FileType go nmap <silent> ;d :DlvToggleBreakpoint<CR>
 nnoremap ;b :GoDebugBreakpoint<CR>
 
+inoremap { {}<Left>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap ( ()<ESC>i
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" GitHub Copilotのキー設定
+imap <C-\> <Plug>(copilot-next)
+
 " プラグイン設定
 call plug#begin()
 Plug 'Shougo/neosnippet.vim'
@@ -227,3 +235,28 @@ let g:NERDTreePatternMatchHighlightColor['.*_test\.js$'] = s:rspec_red
 " デフォルトの色設定（フォルダとファイル）
 let g:WebDevIconsDefaultFolderSymbolColor = s:blue
 let g:WebDevIconsDefaultFileSymbolColor = s:blue
+
+" Copilot commit message設定
+let g:copilot_filetypes = #{
+  \   gitcommit: v:true,
+  \   markdown: v:true,
+  \   text: v:true,
+  \   ddu-ff-filter: v:false,
+  \ }
+
+function s:append_diff() abort
+  " Get the Git repository root directory
+  let git_dir = FugitiveGitDir()
+  let git_root = fnamemodify(git_dir, ':h')
+
+  " Get the diff of the staged changes relative to the Git repository root
+  let diff = system('git -C ' . git_root . ' diff --cached')
+
+  " Add a comment character to each line of the diff
+  let comment_diff = join(map(split(diff, '\n'), {idx, line -> '# ' . line}), "\n")
+
+  " Append the diff to the commit message
+  call append(line('$'), split(comment_diff, '\n'))
+endfunction
+
+autocmd BufReadPost COMMIT_EDITMSG call s:append_diff()
