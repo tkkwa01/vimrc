@@ -116,12 +116,16 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 
 " gitgutter設定
-let g:gitgutter_max_signs = 500  " default value (Vim < 8.1.0614, Neovim < 0.4.0)
-let g:gitgutter_max_signs = -1   " default value (otherwise)
+let g:gitgutter_max_signs = 500
+let g:gitgutter_max_signs = -1
 highlight GitGutterAdd    guifg=#009900 ctermfg=2
 highlight GitGutterChange guifg=#bbbb00 ctermfg=3
 highlight GitGutterDelete guifg=#ff2222 ctermfg=1 
 let g:gitgutter_highlight_lines = 1
+
+" 左の線をsolarizedの背景色に合わせる
+highlight! link SignColumn LineNr
+autocmd ColorScheme * highlight! link SignColumn LineNr
 
 " ctagsのタグファイルをファイル保存時に自動で作る
 function! s:execute_ctags() abort
