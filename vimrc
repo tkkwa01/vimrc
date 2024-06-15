@@ -61,6 +61,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'sebdah/vim-delve', { 'for': ['go'] }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'charlespascoe/vim-go-syntax'
 call plug#end()
 
 " LSP設定
@@ -264,3 +265,21 @@ function s:append_diff() abort
 endfunction
 
 autocmd BufReadPost COMMIT_EDITMSG call s:append_diff()
+
+" 変数の色を白に設定
+augroup go_highlight
+    autocmd!
+    autocmd FileType go highlight goVar guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goVarIdentifier guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goDeclaration guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goDeclType guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goField guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goIdentifier guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight Identifier guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goNonPrimitiveType ctermfg=37
+    autocmd FileType go highlight Statement ctermfg=209
+    autocmd FileType go highlight GoPackageName  ctermfg=178
+    autocmd FileType go highlight goTypeDeclName guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goInterfaceMethod ctermfg=39
+    autocmd FileType go highlight goImportString ctermfg=64
+augroup END
