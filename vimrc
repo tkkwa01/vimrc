@@ -266,7 +266,7 @@ endfunction
 
 autocmd BufReadPost COMMIT_EDITMSG call s:append_diff()
 
-" 変数の色を白に設定
+" Goのシンタックスハイライト設定
 augroup go_highlight
     autocmd!
     autocmd FileType go highlight goVar guifg=#dcdcdc ctermfg=252
