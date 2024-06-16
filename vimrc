@@ -273,17 +273,20 @@ augroup go_highlight
     autocmd FileType go highlight goVarIdentifier guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goDeclaration guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goDeclType guifg=#dcdcdc ctermfg=252
-    autocmd FileType go highlight goField guifg=#dcdcdc ctermfg=252
+    autocmd FileType go highlight goField ctermfg=176
     autocmd FileType go highlight goIdentifier guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight Identifier guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goNonPrimitiveType ctermfg=6
     autocmd FileType go highlight Statement ctermfg=173
+    autocmd FileType go highlight goStringFormat ctermfg=173
+    autocmd FileType go highlight goStringEscape ctermfg=173
     autocmd FileType go highlight GoPackageName  ctermfg=222
     autocmd FileType go highlight goTypeDeclName guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goInterfaceMethod ctermfg=39
     autocmd FileType go highlight goFuncName ctermfg=39
-    autocmd FileType go highlight goFuncBlock ctermfg=39
+    autocmd FileType go highlight goFuncBlock ctermfg=252
     autocmd FileType go highlight goImportString ctermfg=64
+    autocmd FileType go highlight goString ctermfg=64
     autocmd FileType go highlight Delimiter ctermfg=252
     autocmd FileType go highlight goOperator ctermfg=252
     autocmd FileType go highlight goComma ctermfg=252
@@ -291,6 +294,10 @@ augroup go_highlight
     autocmd FileType go highlight goStructTypeField ctermfg=252
     autocmd FileType go highlight goStructLiteralField ctermfg=252
     autocmd FileType go highlight goStructLiteralBlock ctermfg=252
+    autocmd FileType go highlight goUnderscore ctermfg=252
     autocmd FileType go highlight Type ctermfg=130
     autocmd FileType go highlight GoFuncCall ctermfg=179
+    autocmd FileType go highlight Boolean ctermfg=130
+    autocmd FileType go highlight goBuiltins ctermfg=130
+    autocmd FileType go highlight goNil ctermfg=130
 augroup END
