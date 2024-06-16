@@ -274,6 +274,7 @@ augroup go_highlight
     autocmd FileType go highlight goDeclaration guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goDeclType guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goField ctermfg=176
+    " autocmd FileType go highlight goField ctermfg=252
     autocmd FileType go highlight goIdentifier guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight Identifier guifg=#dcdcdc ctermfg=252
     autocmd FileType go highlight goNonPrimitiveType ctermfg=6
