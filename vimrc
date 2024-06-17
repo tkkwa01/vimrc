@@ -40,6 +40,14 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 " GitHub Copilotのキー設定
 imap <C-\> <Plug>(copilot-next)
 
+" GoCallersのキーマッピング
+nnoremap <C-c> :GoCallers<CR>
+
+" リーダーキー(\)を使って前のバッファに戻るマッピング
+nnoremap <leader>bp :bprevious<CR>
+" リーダーキーを使って次のバッファに移動するマッピング
+nnoremap <leader>bn :bnext<CR>
+
 " プラグイン設定
 call plug#begin()
 Plug 'Shougo/neosnippet.vim'
