@@ -294,8 +294,8 @@ augroup go_highlight
     autocmd FileType go highlight goInterfaceMethod ctermfg=39
     autocmd FileType go highlight goFuncName ctermfg=39
     autocmd FileType go highlight goFuncBlock ctermfg=252
-    autocmd FileType go highlight goImportString ctermfg=64
-    autocmd FileType go highlight goString ctermfg=64
+    autocmd FileType go highlight goImportString ctermfg=65
+    autocmd FileType go highlight goString ctermfg=65
     autocmd FileType go highlight Delimiter ctermfg=252
     autocmd FileType go highlight goOperator ctermfg=252
     autocmd FileType go highlight goComma ctermfg=252
@@ -309,5 +309,5 @@ augroup go_highlight
     autocmd FileType go highlight Boolean ctermfg=130
     autocmd FileType go highlight goBuiltins ctermfg=130
     autocmd FileType go highlight goNil ctermfg=130
-    autocmd FileType go highlight goStructTypeTag ctermfg=64
+    autocmd FileType go highlight goStructTypeTag ctermfg=65
 augroup END
