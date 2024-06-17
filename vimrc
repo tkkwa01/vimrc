@@ -309,4 +309,5 @@ augroup go_highlight
     autocmd FileType go highlight Boolean ctermfg=130
     autocmd FileType go highlight goBuiltins ctermfg=130
     autocmd FileType go highlight goNil ctermfg=130
+    autocmd FileType go highlight goStructTypeTag ctermfg=64
 augroup END
