@@ -16,6 +16,8 @@ set updatetime=250
 set fileformats=unix,dos,mac
 set fileencodings=utf-8,sjis
 set tags=.tags;$HOME
+set mouse=a
+set shell=zsh
 
 " キーマッピング
 inoremap <silent> jj <ESC>
@@ -32,16 +34,17 @@ nmap <C-e> <Plug>(GitGutterNextHunk)
 autocmd FileType go nmap <silent> ;d :DlvToggleBreakpoint<CR>
 nnoremap ;b :GoDebugBreakpoint<CR>
 
-inoremap { {}<Left>
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap ( ()<ESC>i
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
+" 自動カッコ補完
+"inoremap { {}<Left>
+"inoremap {<Enter> {}<Left><CR><ESC><S-o>
+"inoremap ( ()<ESC>i
+"inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " GitHub Copilotのキー設定
 imap <C-\> <Plug>(copilot-next)
 
 " GoCallersのキーマッピング
-nnoremap <C-c> :GoCallers<CR>
+nnoremap <C-c> :LspReferences<CR>
 
 " リーダーキー(\)を使って前のバッファに戻るマッピング
 nnoremap <leader>bp :bprevious<CR>
@@ -70,6 +73,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'sebdah/vim-delve', { 'for': ['go'] }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'charlespascoe/vim-go-syntax'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'guns/xterm-color-table.vim'
 call plug#end()
 
 " LSP設定
@@ -311,3 +316,18 @@ augroup go_highlight
     autocmd FileType go highlight goNil ctermfg=130
     autocmd FileType go highlight goStructTypeTag ctermfg=65
 augroup END
+
+let g:vimtex_compiler_latexmk = {
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-pdf',
+    \   '-pdflatex=lualatex',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+\}
+
+" .texファイルを開いたときに:Copilot disableを実行する
+autocmd FileType tex Copilot disable
+
